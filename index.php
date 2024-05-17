@@ -6,12 +6,12 @@ use \Firebase\JWT\Key;
 
 $key = "s3cr3tK3y123!@#";
 $issuedAt = time();
-$expirationTime = $issuedAt + 3600;  // jwt valid for 1 hour from the issued time
+$expirationTime = $issuedAt + 3600;
 $payload = [
     'iat' => $issuedAt,
     'exp' => $expirationTime,
     'data' => [
-        'userId' => 456, // example user id
+        'userId' => 456,
         'username' => 'randomUser'
     ]
 ];
@@ -40,7 +40,6 @@ function verifyJWT($jwt, $key) {
     }
 }
 
-// Example usage
 $token = getBearerToken();
 if ($token) {
     $decodedPayload = verifyJWT($token, $key);
